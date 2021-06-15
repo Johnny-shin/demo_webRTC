@@ -1,0 +1,24 @@
+<cdk-virtual-scroll-viewport [itemSize]="90" class="messages">
+
+    <div class="message" *ngFor='let message of messages;'>
+        <div *ngIf="message.isLocal" class="localMessage">
+            <div class="message-container">
+                <p>{{message.message}}</p><small>{{message.timestamp | date:'shortTime'}}</small>
+            </div>
+        </div>
+        <div *ngIf="!message.isLocal" class="remoteMessage">
+            <div class="message-container">
+                <p>{{message.message}}</p><small>{{message.timestamp | date:'shortTime'}}</small>
+            </div>
+        </div>
+    </div>
+
+</cdk-virtual-scroll-viewport>
+<div class="full-width">
+
+    <mat-form-field class="fill-remaining-space" appearance="outline">
+        <mat-label>Message</mat-label>
+        <input matInput autocomplete="off" #messageBox (keyup.enter)='send()'>
+        <mat-icon color='primary' matSuffix (click)='send()' style="cursor: pointer;" role="button">send</mat-icon>
+    </mat-form-field>
+</div>

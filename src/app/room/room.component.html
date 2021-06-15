@@ -1,0 +1,6 @@
+<h1>Rooms</h1>
+<mat-selection-list [multiple]="false">
+    <mat-list-option *ngFor="let room of rooms" [value]="room.id" [routerLink]="[room.id]">
+      {{room.name}}
+    </mat-list-option>
+  </mat-selection-list>

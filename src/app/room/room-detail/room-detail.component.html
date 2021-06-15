@@ -1,0 +1,11 @@
+<app-video-chat-room #localVideoComponent></app-video-chat-room>
+<app-video-chat-room #remoteVideoComponent></app-video-chat-room>
+<div class="button-container">
+    <button (click)='startCall()' mat-fab color="primary" style="margin-right: 10px;" >
+        <mat-icon>call</mat-icon>
+    </button>
+    <button *ngIf='remoteOffer' (click)='acceptCall()' mat-fab color="warn" style="margin-left: 10px;" >
+        <mat-icon>ring_volume</mat-icon>
+    </button>
+</div>
+<app-chat-room #chatComponent (message)='send($event)'></app-chat-room>
